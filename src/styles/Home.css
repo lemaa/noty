@@ -1,0 +1,33 @@
+.button-container{
+    padding: 15px;
+}
+.note-add-button {
+    -webkit-box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.56);
+    -moz-box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.56);
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.56);
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background: white;
+    color: white;
+    font-size: 30px;
+    border: solid #000;
+}
+
+.note-add-button:hover,
+.note-add-button:active,
+.note-add-button:focus {
+    border: solid #000;
+    color: white;
+    background-color: #2940b0;
+    box-shadow: none;
+}
+
+section.notes-section {
+    padding: 10px;
+}
+
+.btn-cancel {
+    margin-left: 15px;
+    margin-right: 15px;
+}

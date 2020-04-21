@@ -1,0 +1,12 @@
+.modal-content {
+    border: solid black;
+}
+
+.addNoteModelLabel {
+    color: #910c94;
+}
+
+.modal-header, 
+.modal-footer {
+    border: none;
+}

@@ -1,0 +1,27 @@
+
+.note-input,
+.note-input:focus {
+    border: solid black 1px;
+}
+
+.note-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(175, 33, 178, 0.15);
+}
+
+.bootstrap-select>.dropdown-toggle {
+    background: transparent;
+    border: solid black 1px;
+}
+
+.select-icon {
+    width: 15px;
+}
+
+p.errors {
+    color:red;
+}
+
+p.errors::before {
+    display: inline;
+    content: "⚠ ";
+}
