@@ -16,6 +16,8 @@
 
 .card-title {
     color: #910c94;
+    text-align: center;
+
 }
 
 .notes-row {
@@ -23,7 +25,8 @@
 }
 
 .note-text {
-    height: 150px;
+    max-height: 150px;
+    min-height: 70px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -38,4 +41,12 @@
 
 .note-tags span.badge {
     margin: 2px;
+}
+
+.card-body {
+    padding: 5px;
+}
+.note-link{
+    font-size: 11px;
+    color: #910c94;
 }

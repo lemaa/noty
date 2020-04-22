@@ -1,3 +1,7 @@
+.main-section{
+    min-height: 100vh;
+    margin-bottom: 13px;
+}
 .button-container{
     padding: 15px;
 }

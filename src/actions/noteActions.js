@@ -3,7 +3,7 @@ import {FETCH_NOTES, CREATE_NOTE, DELETE_NOTE } from './types';
 import axios from 'axios';
 import Utils from './../utils';
 
-const apiUrl = 'http://localhost:3000/note';
+const apiUrl = 'http://192.168.99.104:9090/note';
 
 const createNote = (body) => {
   return async (dispatch) => {

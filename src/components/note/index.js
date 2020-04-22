@@ -9,6 +9,7 @@ function Note(props) {
     const [color] = useState(props.color);
     const [title] = useState(props.title);
     const [text] = useState(props.text);
+    const [link] = useState(props.link);
     const [tags] = useState(props.tags);
     const [createdAt] = useState(props.createdAt);
 
@@ -26,7 +27,13 @@ function Note(props) {
             </Card.Header>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
-                <Card.Text className="note-text">{text}</Card.Text>
+                <Card.Text className="note-text">
+                    {text}
+
+                </Card.Text>
+                <Card.Text>
+                    <a href={`${link}`} className="note-link stretched-link">Link to original article</a>
+                </Card.Text>
             </Card.Body>
             <Card.Body className="note-tags">
                 {tags && tags.map((tag, i) => (

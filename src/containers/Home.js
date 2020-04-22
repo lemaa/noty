@@ -47,7 +47,7 @@ const Home = () => {
 
       };
     return (
-        <Container fluid>
+        <Container className="main-section" fluid>
             <Row className="top-bar-section">
                 <Col className="button-container">
                      <Button buttonType="button" classIdentifier="note-add-button float-right btn btn-light" onClick={handleShowNewForm }>
@@ -65,6 +65,7 @@ const Home = () => {
                                       title= {note.title}
                                       text= {note.text}  
                                       tags= {note.tags}     
+                                      link= {note.link}     
                                       createdAt= {moment(note.createdAt).startOf('day').fromNow()} />
                                 ))}
                         </Row>

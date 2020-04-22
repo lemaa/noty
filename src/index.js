@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 import Header from './components/header/index';
+import Footer from './components/footer/index';
 import Home from './containers/Home';
 import Note from './containers/Note';
 import store from './store';
@@ -22,6 +23,9 @@ ReactDOM.render(
                     </Route>
                 </Switch>
             </Router>
+            <Footer>
+                <p>some footer</p>
+            </Footer>
         </React.StrictMode>
   </Provider>,
   document.getElementById('root')
