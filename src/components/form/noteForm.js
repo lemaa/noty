@@ -122,7 +122,7 @@ function NoteForm(props) {
                             <Form.Control name="title" type="text" className="note-input" placeholder="title" ref={register({ required: true })} />
                             {errors.title && <p className="errors">{errors.title.message}</p>}
                         </Col>
-                    </Form.Group>
+                </Form.Group>
                 <Form.Group as={Row} controlId="linkRow">
                         <Form.Label column sm={2} className="col-form-label">Link</Form.Label>
                         <Col sm={10}>

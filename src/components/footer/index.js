@@ -1,18 +1,17 @@
 import React from "react";
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import '../../styles/Footer.css';
+import { FooterStyle } from '../../styles/Footer';
 
 function Footer(props) { 
   return (
-    <Container  className="footer" fluid>
+    <FooterStyle  className="container-fluid">
         <Row className="footer-title">
             <Col>
                  {props.children}
             </Col>
         </Row>
-    </Container>
+    </FooterStyle>
   );
 }
 

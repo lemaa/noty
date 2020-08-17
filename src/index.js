@@ -7,20 +7,21 @@ import * as serviceWorker from './serviceWorker';
 import Header from './components/header/index';
 import Footer from './components/footer/index';
 import Home from './containers/Home';
-import Note from './containers/Note';
-import store from './store';
-import './styles/index.css';
+import Timer from './containers/Timer';
+ import store from './store';
+import {Global} from './styles/';
             
 ReactDOM.render(
     <Provider  store={store}>
         <React.StrictMode>
-            <Header title="Notes to self"/>
+            <Global/>
+            <Header title="NOtes"/>
             <Router>
                 <Switch>
                     <Route exact path="/" component = {Home} >
                     </Route>
-                    <Route exact path="/new-note" component = {Note}>
-                    </Route>
+                    <Route exact path="/timer" component = {Timer}>
+                    </Route>                 
                 </Switch>
             </Router>
             <Footer>

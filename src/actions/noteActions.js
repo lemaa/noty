@@ -1,7 +1,6 @@
 
 import {FETCH_NOTES, CREATE_NOTE, DELETE_NOTE } from './types';
 import axios from 'axios';
-import Utils from './../utils';
 
 const apiUrl = 'http://192.168.99.104:9090/note';
 
@@ -23,17 +22,17 @@ const createNoteSuccess =  (data) => {
   return {
     type: CREATE_NOTE,
     payload: {
-      _id: data._id,
-      body: data.body
+      _id: data.note._id,
+      body: data.note
     }
   };
 };
 
-const deleteNoteSuccess = id => {
+const deleteNoteSuccess = data => {
   return {
     type: DELETE_NOTE,
     payload: {
-      id
+      id: data.note._id
     }
   };
 };
@@ -42,7 +41,7 @@ const deleteNote = id => {
   return async (dispatch) => {
     try
       {
-          const response = await axios.get(`${ apiUrl }/delete/${ id }`);
+          const response = await axios.delete(`${ apiUrl }/delete/${ id }`);
           dispatch(deleteNoteSuccess(response.data));
       }
       catch (error)
@@ -53,9 +52,9 @@ const deleteNote = id => {
 };
 
 const fetchNotes = (notes) => {
-  return {
+   return {
     type: FETCH_NOTES,
-    notes: Utils.arrayTools.chunkArray(notes, 3)
+    notes: notes 
     
   };
 };

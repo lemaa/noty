@@ -50,3 +50,23 @@
     font-size: 11px;
     color: #910c94;
 }
+
+.note-delete-button,
+.note-delete-button:hover,
+.note-delete-button:active,
+.note-delete-button:focus{
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: white;
+    box-shadow: none;
+    color: white;
+    padding: 0px;
+    position: absolute;
+    right: 0;
+    top: 0;
+ }
+
+ .note-delete-button img{
+    width: 23px;
+ }

@@ -1,6 +1,6 @@
  const chunkArray = (chunkArray, length) => {
      try {
-        const chunkedArray = chunkArray.reduce((resultArray, item, index) => {
+         const chunkedArray = chunkArray.reduce((resultArray, item, index) => {
              const chunkIndex = Math.floor(index / length);
              if (!resultArray[chunkIndex]) {
                  resultArray[chunkIndex] = [];

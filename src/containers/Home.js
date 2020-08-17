@@ -12,15 +12,15 @@ import moment from 'moment';
 import NoteForm from './../components/form/noteForm';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Home.css';
+import Utils from './../utils';
+
 
 const Home = () => {
 
     const [showNewForm, setShowNewForm] = useState(false);
-
-    const handleCloseNewForm = () => {
-        setShowNewForm(false);
-    };
-    const handleShowNewForm = () =>  setShowNewForm(true);
+ 
+    const handleCloseNewForm = () => setShowNewForm(false);
+    const handleShowNewForm = () => setShowNewForm(true);
 
 
     const notes = useSelector(state => state.notes);
@@ -28,9 +28,9 @@ const Home = () => {
   
     useEffect(() => {
         dispatch(allActions.noteActions.fetchAllNotes());
+
     }, [dispatch]);
-  
-     
+    
     const handleAddNote = (data) => {
 
         const dataNote =  { 
@@ -44,37 +44,47 @@ const Home = () => {
             dispatch(allActions.noteActions.createNote(dataNote));
             toast.success("Note has been created successfully");
             setShowNewForm(false);
-
+ 
       };
+ 
+    const handleDeleteNote = (_id) => {
+        dispatch(allActions.noteActions.deleteNote(_id));
+        toast.success("Note has been deleted successfully");
+    };
+console.log(notes);
     return (
         <Container className="main-section" fluid>
             <Row className="top-bar-section">
                 <Col className="button-container">
                      <Button buttonType="button" classIdentifier="note-add-button float-right btn btn-light" onClick={handleShowNewForm }>
-                     <img src={process.env.PUBLIC_URL + `/assets/note-add.png`} className=" mx-auto d-block img-fluid" alt="note"/>
+                        <img src={process.env.PUBLIC_URL + `/assets/note-add.png`} className=" mx-auto d-block img-fluid" alt="note"/>
                     </Button>
                 </Col>
             </Row>
             <Container className="notes-section" fluid>
-                { notes[0] && 
-                    notes[0].map((notesRow, i) => (
+                { notes[0]  && 
+                    Utils.arrayTools.chunkArray(notes[0], 3).map((notesRow, i) => (
                         <Row key={i.toString()} className="justify-content-around notes-row">
                             {notesRow.map((note) => (
                                 <Note key={note._id.toString()}
+                                      _id= {note._id} 
                                       color= {note.color} 
                                       title= {note.title}
                                       text= {note.text}  
                                       tags= {note.tags}     
                                       link= {note.link}     
-                                      createdAt= {moment(note.createdAt).startOf('day').fromNow()} />
+                                      createdAt= {moment(note.createdAt).startOf('day').fromNow()} 
+                                      handleDeleteNote = {() => handleDeleteNote(note._id)}
+                                      >
+                                      </Note>
                                 ))}
                         </Row>
                     ))
                 } 
             </Container>
             
-            <NoteModal showModal={showNewForm}  handleCloseModal ={handleCloseNewForm} animationModal={true} >
-                <NoteForm submitClickHandler={handleAddNote} cancelClickHandler={handleCloseNewForm} ></NoteForm>
+            <NoteModal showModal={showNewForm}  handleCloseModal ={handleCloseNewForm } animationModal={true} >
+                <NoteForm submitClickHandler={handleAddNote} cancelClickHandler={handleCloseNewForm } ></NoteForm>
             </NoteModal>
             <ToastContainer />
         </Container>          
